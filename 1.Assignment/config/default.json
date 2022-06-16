@@ -1,3 +1,4 @@
 {
-    "jwtprivatekey": "pass1234"
+    "jwtprivatekey": "pass1234",
+    "db": "mongodb://localhost/backend_assignment_1"
 }
