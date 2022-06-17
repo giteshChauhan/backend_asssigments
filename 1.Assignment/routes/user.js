@@ -16,10 +16,13 @@ router.post('/signup',async(req,res) => {
     });
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password,salt);
-
     await user.save();
-    res.header('x-auth-token',user.generateAuthToken()).send('User registered, Check header for token.');
+
+    const token = user.generateAuthToken();
+    res.header('user-auth-token',token).send('User registered, Check header for token.');
 });
+
+
 
 router.post('/login',async (req,res) => {
     const {error} = validate(req.body);
@@ -31,8 +34,9 @@ router.post('/login',async (req,res) => {
     const isPassword = await bcrypt.compare(req.body.password, user.password);
     if(!isPassword) return res.status(400).send('Invalid phone number or password');
     
-    const token = user.generateAuthToken()
+    const token = user.generateAuthToken();
     res.send(token);
 });
+
 
 module.exports = router;
