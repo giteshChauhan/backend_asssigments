@@ -1,6 +1,6 @@
 # backend_assignments
 
-- This repo contains interview level assignments for backend in web development.
+- This repo contains interview level assignments for backend services in web development.
 
 - I completed these assignmets in MERN particularly node.js and express.js.
 
