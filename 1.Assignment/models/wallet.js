@@ -24,14 +24,21 @@ const walletSchema = new mongoose.Schema({
 
 const Wallet = mongoose.model('wallet',walletSchema);
 
+function validatePin(pin){
+    const Schema = Joi.object({
+        pin: Joi.string().trim().length(8).required(),
+    });
+    return Schema.validate(pin);
+}
+
 function validateWallet(wallet){
     const Schema = Joi.object({
-        balance: Joi.number().min(0).max(2000),
+        balance: Joi.number().min(0).max(2000).required(),
         pin: Joi.string().trim().length(8).required(),
     });
     return Schema.validate(wallet);
 }
 
 exports.Wallet = Wallet;
+exports.validatePin = validatePin;
 exports.validate = validateWallet;
-exports.walletSchema = walletSchema;
