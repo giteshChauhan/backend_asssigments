@@ -27,8 +27,8 @@ const User = mongoose.model('user',userSchema);
 
 function validateUser(user){
     const schema = Joi.object({
-        phoneNumber: Joi.string().length(10).required(),
-        password: passwordComplexity().required()
+        phoneNumber: Joi.string().length(10).required().trim(),
+        password: passwordComplexity().required().trim()
     });
     return schema.validate(user);
 }
