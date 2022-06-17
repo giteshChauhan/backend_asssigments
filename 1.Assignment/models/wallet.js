@@ -26,7 +26,7 @@ const Wallet = mongoose.model('wallet',walletSchema);
 
 function validateWallet(wallet){
     const Schema = Joi.object({
-        balance: Joi.number().min(0).max(10000),
+        balance: Joi.number().min(0).max(2000),
         pin: Joi.string().trim().length(8).required(),
     });
     return Schema.validate(wallet);
