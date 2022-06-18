@@ -19,7 +19,11 @@ const walletSchema = new mongoose.Schema({
         length:8,
         required:true,
         trim:true
-    }
+    },
+    transactions:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Transaction'
+    }]
 });
 
 const Wallet = mongoose.model('wallet',walletSchema);
