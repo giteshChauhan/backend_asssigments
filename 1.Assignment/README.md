@@ -64,7 +64,7 @@
         {
             "pin" : " ",
             "amount" : " ",
-            "reciever" : " "     // phoneNumber
+            "receiver" : " "     // phoneNumber
         }</pre>
     </li>
     <li><pre>GET/api/wallet/currentBalance : to check balance
