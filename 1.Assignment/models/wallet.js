@@ -37,7 +37,7 @@ function validatePin(pin){
 
 function validateWallet(wallet){
     const Schema = Joi.object({
-        balance: Joi.number().min(0).max(2000).required(),
+        balance: Joi.number().min(1).max(2000).required(),
         pin: Joi.string().trim().length(8).required(),
     });
     return Schema.validate(wallet);

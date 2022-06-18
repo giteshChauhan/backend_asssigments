@@ -7,7 +7,7 @@ const transactionSchema = new mongoose.Schema({
         length: 10,
         required: true
     },
-    reciever:{
+    receiver:{
         type: String,
         length: 10,
         required: true
@@ -25,7 +25,7 @@ const Transaction = mongoose.model('transaction',transactionSchema);
 
 function validateTransaction(transaction){
     const Schema = Joi.object({
-        reciever: Joi.string().trim().length(10).required(),
+        receiver: Joi.string().trim().length(10).required(),
         amount: Joi.number().min(1).max(2000).required(),
         pin: Joi.string().trim().length(8).required()
     });
