@@ -4,11 +4,15 @@
  <br>
 
 ## MySolution:
-
+---------------------------------------------------
 <b>Databases</b> | transactions | users | wallets
+--------------------------------------------------
 <b>Routes</b> | transaction.js | user.js | wallet.js
+----------------------------------------------------
 <b>Models</b> | transaction.js | user.js | wallet.js
+----------------------------------------------------
 <b>Middleware</b>| auth | - | auth
+----------------------------------------------------
 
 <b>services:<b>
 
