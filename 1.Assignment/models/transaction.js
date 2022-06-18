@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const transactionSchema = new mongoose.Schema({
+    sender:{
+        type: String,
+        length: 10,
+        required: true
+    },
     reciever:{
         type: String,
         length: 10,
