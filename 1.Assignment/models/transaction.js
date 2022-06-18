@@ -13,7 +13,7 @@ const transactionSchema = new mongoose.Schema({
         max: 2000,
         required: true
     },
-    date: Date.now
+    date: { type:Date, required:true, default: Date.now}
 });
 
 const Transaction = mongoose.model('transaction',transactionSchema);
@@ -21,10 +21,11 @@ const Transaction = mongoose.model('transaction',transactionSchema);
 function validateTransaction(transaction){
     const Schema = Joi.object({
         reciever: Joi.string().trim().length(10).required(),
-        amount: Joi.number().min(1).max(2000).required()
+        amount: Joi.number().min(1).max(2000).required(),
+        pin: Joi.string().trim().length(8).required()
     });
     return Schema.validate(transaction);
 }
 
 exports.Transaction = Transaction;
-exports.validate = validateTransaction;
+exports.validateTransaction = validateTransaction;
